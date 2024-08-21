@@ -113,7 +113,7 @@ body {
 }
 
 .contact-form {
-  background-color: #fff;
+  background-color: #ffa833;
   padding: 20px;
   border-radius: 8px;
   max-width: 500px;
