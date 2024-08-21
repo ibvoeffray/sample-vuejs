@@ -1,52 +1,8 @@
 <template>
   <div id="app" class="contact-form">
 
-    <h1>Test Marketing</h1>
+    <h1>Solution d'un formulaire en 2 minutes.</h1>
     
-    <h2>Contactez-nous</h2>
-    <form @submit.prevent="submitForm">
-      <div>
-        <label for="name">Nom</label>
-        <input
-          type="text"
-          id="name"
-          v-model="form.name"
-          placeholder="Votre nom"
-        />
-        <div class="error" v-if="errors.name">{{ errors.name }}</div>
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          v-model="form.email"
-          placeholder="Votre email"
-        />
-        <div class="error" v-if="errors.email">{{ errors.email }}</div>
-      </div>
-      <div>
-        <label for="subject">Sujet</label>
-        <input
-          type="text"
-          id="subject"
-          v-model="form.subject"
-          placeholder="Sujet"
-        />
-        <div class="error" v-if="errors.subject">{{ errors.subject }}</div>
-      </div>
-      <div>
-        <label for="message">Message</label>
-        <textarea
-          id="message"
-          v-model="form.message"
-          placeholder="Votre message"
-          rows="5"
-        ></textarea>
-        <div class="error" v-if="errors.message">{{ errors.message }}</div>
-      </div>
-      <button type="submit">Envoyer</button>
-    </form>
   </div>
 </template>
 
