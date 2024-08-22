@@ -1,71 +1,115 @@
 <template>
-  
-  <div id="app">
-    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>
-    <p>Bon je vais vous aider! GO GO GO!</p>
+  <div class="container">
+    <h1>Contactez-nous</h1>
+    <form @submit.prevent="sendEmail">
+      <div>
+        <label for="name">Nom</label>
+        <input v-model="form.name" type="text" id="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input v-model="form.email" type="email" id="email" required>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea v-model="form.message" id="message" required></textarea>
+      </div>
+      <button type="submit">Envoyer</button>
+    </form>
+    <div id="status">{{ statusMessage }}</div>
   </div>
 </template>
 
+<script>
+import emailjs from 'emailjs-com';
 
+export default {
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      },
+      statusMessage: ''
+    };
+  },
+  methods: {
+    sendEmail() {
+      const serviceID = 'votre_service_id';  // Remplacez avec votre service ID EmailJS
+      const templateID = 'votre_template_id'; // Remplacez avec votre template ID EmailJS
+
+      emailjs.send('serviceID', 'templateID', this.form)
+        .then(() => {
+          this.statusMessage = 'Message envoyé avec succès!';
+          this.form.name = '';
+          this.form.email = '';
+          this.form.message = '';
+        })
+        .catch((err) => {
+          this.statusMessage = 'Erreur lors de l\'envoi du message.';
+          console.error('Erreur:', err);
+        });
+    }
+  },
+  mounted() {
+    emailjs.init('votre_user_id');  // Remplacez avec votre User ID EmailJS
+  }
+};
+</script>
 
 <style scoped>
-  
-#app {
-  max-width: 600px;
-  margin: 50px auto;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
   padding: 20px;
-  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
-}
-
-.form-group {
-  margin-bottom: 15px;
 }
 
 label {
-  font-weight: bold;
   display: block;
-  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
-input,
-textarea {
+input, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  margin-top: 5px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-}
-
-textarea {
-  resize: vertical;
 }
 
 button {
-  display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #5cb85c;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #4cae4c;
 }
 
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
+#status {
+  margin-top: 15px;
+  text-align: center;
 }
 </style>
