@@ -73,7 +73,7 @@ export default {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  background-color: blue;
+  background-color: #f9f9f9;
 }
 
 .form-group {
