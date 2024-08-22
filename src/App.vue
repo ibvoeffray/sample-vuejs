@@ -8,12 +8,6 @@
 
 
 <style scoped>
-#header-bbb {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
   
 #app {
   max-width: 600px;
