@@ -1,4 +1,5 @@
 <template>
+  <img src="/print-BBB.PNG" alt="Sil BliBlaBlo" class="center" id="header-bbb">
   <div id="app">
     <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>  
   </div>
@@ -7,6 +8,12 @@
 
 
 <style scoped>
+#header-bbb {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 #app {
   max-width: 600px;
   margin: 50px auto;
