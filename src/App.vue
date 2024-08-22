@@ -33,27 +33,7 @@ export default {
       statusMessage: ''
     };
   },
-  methods: {
-    sendEmail() {
-      const serviceID = 'votre_service_id';  // Remplacez avec votre service ID EmailJS
-      const templateID = 'votre_template_id'; // Remplacez avec votre template ID EmailJS
-
-      emailjs.send('serviceID', 'templateID', this.form)
-        .then(() => {
-          this.statusMessage = 'Message envoyé avec succès!';
-          this.form.name = '';
-          this.form.email = '';
-          this.form.message = '';
-        })
-        .catch((err) => {
-          this.statusMessage = 'Erreur lors de l\'envoi du message.';
-          console.error('Erreur:', err);
-        });
-    }
-  },
-  mounted() {
-    emailjs.init('votre_user_id');  // Remplacez avec votre User ID EmailJS
-  }
+ 
 };
 </script>
 
