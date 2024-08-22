@@ -1,65 +1,10 @@
 <template>
-  <img src="<%= BASE_URL %>print-BBB.PNG" />
   <div id="app">
-
-    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>
-    
+    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>  
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      },
-      errors: {},
-    };
-  },
-  methods: {
-    validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    },
-    submitForm() {
-      this.errors = {};
 
-      if (!this.form.name) {
-        this.errors.name = "Le nom est requis.";
-      }
-
-      if (!this.form.email) {
-        this.errors.email = "L'email est requis.";
-      } else if (!this.validateEmail(this.form.email)) {
-        this.errors.email = "L'email est invalide.";
-      }
-
-      if (!this.form.subject) {
-        this.errors.subject = "Le sujet est requis.";
-      }
-
-      if (!this.form.message) {
-        this.errors.message = "Le message est requis.";
-      }
-
-      if (Object.keys(this.errors).length === 0) {
-        alert("Formulaire soumis avec succès !");
-        this.resetForm();
-      }
-    },
-    resetForm() {
-      this.form.name = "";
-      this.form.email = "";
-      this.form.subject = "";
-      this.form.message = "";
-    },
-  },
-};
-</script>
 
 <style scoped>
 #app {
