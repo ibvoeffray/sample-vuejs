@@ -1,49 +1,8 @@
 <template>
   <div id="app">
-  
-    <h1>Formulaire de Contact</h1>
-    <form @submit.prevent="submitForm">
-      <div class="form-group">
-        <label for="name">Nom</label>
-        <input
-          type="text"
-          id="name"
-          v-model="form.name"
-          placeholder="Entrez votre nom"
-        />
-        <span v-if="errors.name" class="error">{{ errors.name }}</span>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          v-model="form.email"
-          placeholder="Entrez votre email"
-        />
-        <span v-if="errors.email" class="error">{{ errors.email }}</span>
-      </div>
-      <div class="form-group">
-        <label for="subject">Sujet</label>
-        <input
-          type="text"
-          id="subject"
-          v-model="form.subject"
-          placeholder="Entrez le sujet"
-        />
-        <span v-if="errors.subject" class="error">{{ errors.subject }}</span>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea
-          id="message"
-          v-model="form.message"
-          placeholder="Entrez votre message"
-        ></textarea>
-        <span v-if="errors.message" class="error">{{ errors.message }}</span>
-      </div>
-      <button type="submit">Envoyer</button>
-    </form>
+
+    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>
+    
   </div>
 </template>
 
@@ -114,6 +73,7 @@ export default {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  background-color: blue;
 }
 
 .form-group {
