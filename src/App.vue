@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  
     <h1>Formulaire de Contact</h1>
     <form @submit.prevent="submitForm">
       <div class="form-group">
