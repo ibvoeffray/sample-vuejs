@@ -1,4 +1,5 @@
 <template>
+  <img v-bind:src="require('images/print-BBB.PNG')" />
   <div id="app">
 
     <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>
