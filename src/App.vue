@@ -1,8 +1,48 @@
 <template>
-  <div id="app" class="contact-form">
-
-    <h1>Solution d'un formulaire en 2 minutes.</h1>
-    
+  <div id="app">
+    <h1>Formulaire de Contact</h1>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input
+          type="text"
+          id="name"
+          v-model="form.name"
+          placeholder="Entrez votre nom"
+        />
+        <span v-if="errors.name" class="error">{{ errors.name }}</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          v-model="form.email"
+          placeholder="Entrez votre email"
+        />
+        <span v-if="errors.email" class="error">{{ errors.email }}</span>
+      </div>
+      <div class="form-group">
+        <label for="subject">Sujet</label>
+        <input
+          type="text"
+          id="subject"
+          v-model="form.subject"
+          placeholder="Entrez le sujet"
+        />
+        <span v-if="errors.subject" class="error">{{ errors.subject }}</span>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          v-model="form.message"
+          placeholder="Entrez votre message"
+        ></textarea>
+        <span v-if="errors.message" class="error">{{ errors.message }}</span>
+      </div>
+      <button type="submit">Envoyer</button>
+    </form>
   </div>
 </template>
 
@@ -21,32 +61,32 @@ export default {
   },
   methods: {
     validateEmail(email) {
-      const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
     },
     submitForm() {
       this.errors = {};
 
       if (!this.form.name) {
-        this.errors.name = "Veuillez entrer votre nom.";
+        this.errors.name = "Le nom est requis.";
       }
 
       if (!this.form.email) {
-        this.errors.email = "Veuillez entrer votre email.";
+        this.errors.email = "L'email est requis.";
       } else if (!this.validateEmail(this.form.email)) {
-        this.errors.email = "Veuillez entrer un email valide.";
+        this.errors.email = "L'email est invalide.";
       }
 
       if (!this.form.subject) {
-        this.errors.subject = "Veuillez entrer un sujet.";
+        this.errors.subject = "Le sujet est requis.";
       }
 
       if (!this.form.message) {
-        this.errors.message = "Veuillez entrer un message.";
+        this.errors.message = "Le message est requis.";
       }
 
       if (Object.keys(this.errors).length === 0) {
-        alert("Merci pour votre message ! Nous vous contacterons bientôt.");
+        alert("Formulaire soumis avec succès !");
         this.resetForm();
       }
     },
@@ -61,56 +101,61 @@ export default {
 </script>
 
 <style scoped>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffa833;
-  margin: 0;
+#app {
+  max-width: 600px;
+  margin: 50px auto;
   padding: 20px;
-}
-
-.contact-form {
-  background-color: #ffa833;
-  padding: 20px;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form h2 {
+h1 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.contact-form input,
-.contact-form textarea {
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.contact-form button {
-  padding: 10px 20px;
+textarea {
+  resize: vertical;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.contact-form button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
 .error {
   color: red;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 </style>
