@@ -1,7 +1,8 @@
 <template>
   
   <div id="app">
-    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>  
+    <h1>Avant de commencer qui peut me créer un formulaire de contact online en 2 minutes dans cette salle?</h1>
+    <p>Bon je vais vous aider! GO GO GO!</p>
   </div>
 </template>
 
